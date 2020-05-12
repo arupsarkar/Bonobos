@@ -5,7 +5,7 @@ const client = require('../db');
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
     try{
-        let query = 'select points__c from salesforce.bnb_loyalty__c';
+        let query = 'select points__c, Birthdate__c, Contact__c, category__c, id_card__c from salesforce.bnb_loyalty__c';
 
         await client
             .query(query)

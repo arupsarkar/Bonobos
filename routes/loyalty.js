@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
             .query(query)
             .then(res => console.log(res.rows[0].points__c))
             .catch(err => console.error('Error executing query', err.stack))
-        res.json({data : 'dummy response'});
+        res.json(res.rows);
     }catch(err) {
         console.error(err.message);
     }

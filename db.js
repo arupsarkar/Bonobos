@@ -17,7 +17,6 @@ let client = new pg.Client({
     database: "dfgm3fjipert9v",
     port: 5432,
     host: "ec2-18-210-51-239.compute-1.amazonaws.com",
-    ssl: true
 });
 
 client.connect();

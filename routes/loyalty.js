@@ -40,13 +40,14 @@ router.get('/loyalties/:id_card__c', async (req, res, next) => {
 
 router.put('/loyalties/:id_card__c', async(req, res, next) => {
     try{
-        const sql = 'update salesforce.bnb_loyalty__c SET Birthdate__c = $1 WHERE id_card__c = $2';
+        const sql = 'update salesforce.bnb_loyalty__c SET birthdate__c = $1 WHERE id_card__c = $2';
         const {id_card__c  } = req.params;
-        const {Birthdate__c } = req.body;
-        console.log(new Date(), ' birthdate : ' + Birthdate__c);
+        const {birthdate__c} = req.body;
+        console.log(new Date(), ' req.body : ' + req.body);
+        console.log(new Date(), ' birthdate : ' + birthdate__c);
         console.log(new Date(), ' id_card__c : ' + id_card__c);
         await client
-            .query(sql, [Birthdate__c, id_card__c ])
+            .query(sql, [birthdate__c, id_card__c ])
             .then(result => {
                 console.log(new Date(), JSON.stringify(result));
                 res.json(result);

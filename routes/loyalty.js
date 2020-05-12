@@ -9,8 +9,8 @@ router.get('/', async (req, res, next) => {
 
         await client
             .query(query)
-            .then(res => {
-                res.json(res.rows);
+            .then(result => {
+                res.json(result.rows);
             })
             .catch(err => console.error('Error executing query', err.stack))
 

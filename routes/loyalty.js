@@ -9,9 +9,11 @@ router.get('/', async (req, res, next) => {
 
         await client
             .query(query)
-            .then(res => console.log(res.rows[0].points__c))
+            .then(res => {
+                res.json(res.rows);
+            })
             .catch(err => console.error('Error executing query', err.stack))
-        res.json(res.rows);
+
     }catch(err) {
         console.error(err.message);
     }

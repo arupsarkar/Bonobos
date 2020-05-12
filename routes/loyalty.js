@@ -50,7 +50,7 @@ router.put('/loyalties/:id_card__c', async(req, res, next) => {
             .query(sql, [birthdate__c, id_card__c ])
             .then(result => {
                 console.log(new Date(), JSON.stringify(result));
-                res.json(result);
+                res.json({result: 'Record updated successfully.'});
             })
             .catch(err => console.error('Error executing query', err.stack));
     }catch(err) {

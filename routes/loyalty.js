@@ -38,4 +38,21 @@ router.get('/loyalties/:id_card__c', async (req, res, next) => {
     }
 })
 
+router.put('/loyalties', async(req, res, next) => {
+    try{
+        const sql = 'update salesforce.bnb_loyalty__c SET Birthdate__c = $1 WHERE id_card__c = $2';
+        const {id_card__c  } = req.params;
+        const {Birthdate__c } = req.body;
+        const updateLoyalty = await client
+            .query(sql, [Birthdate__c, id_card__c ])
+            .then(result => {
+                console.log(new Date(), JSON.stringify(result));
+                res.json(result);
+            })
+            .catch(err => console.error('Error executing query', err.stack));
+    }catch(err) {
+        console.error(err.message);
+    }
+})
+
 module.exports = router;

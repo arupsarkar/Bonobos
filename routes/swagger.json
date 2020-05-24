@@ -29,10 +29,15 @@
   "paths": {
     "/loyalties/{id_card__c}": {
       "get": {
-        "tags": [
-          "loyalties"
+        "operationId":"getLoyalty",
+        "summary":"Retrieves loyalty details",
+        "description": "Retrieves loyalty details with specific id",
+        "consumes":[
+          "text/plain"
         ],
-        "description": "Get Loyalty details.",
+        "produces":[
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id_card__c",

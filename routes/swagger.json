@@ -1,0 +1,61 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Salesforce External Services Integration",
+    "description": "This service will be consumed by salesforce external services to get loyalty points declaratively",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "bnb-loyalty-app.herokuapp.com",
+  "basePath": "/loyalty",
+  "tags": [
+    {
+      "name": "Loyalty",
+      "description": "API for loyalty"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/loyalties/{id_card__c}": {
+      "get": {
+        "tags": [
+          "loyalties"
+        ],
+        "description": "Get Loyalty details.",
+        "parameters": [
+          {
+            "name": "id_card__c",
+            "in": "path",
+            "description": "return details for the loyalty id",
+            "required": true,
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Loyalty user found"
+          },
+          "400" : {
+            "description": "Invalid Id supplied"
+          },
+          "404" : {
+            "description": "Loyalty user not found"
+          }
+        }
+      }
+    }
+
+  }
+}

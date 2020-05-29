@@ -23,9 +23,12 @@ router.post('/update', async(req, res, next) => {
     try{
         const sql = 'update salesforce.bnb_fit_info__c SET size__c = $1, type__c = $2 WHERE id = $3';
         console.log(new Date(), ' body : ' + JSON.stringify(req.body));
-        const {size__c} = req.body.size;
-        const {type__c} = req.body.type;
-        const {id} = req.body.id;
+        console.log(new Date(), ' size : ' + req.body.size);
+        console.log(new Date(), ' type : ' + req.body.type);
+        console.log(new Date(), ' id : ' + req.body.id);
+        let size__c = req.body.size;
+        let type__c = req.body.type;
+        let id = req.body.id;
         console.log(new Date(), ' size : ' + size__c);
         console.log(new Date(), ' type : ' + type__c);
         console.log(new Date(), ' id : ' + id);

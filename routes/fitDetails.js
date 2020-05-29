@@ -19,7 +19,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-router.put('/update', async(req, res, next) => {
+router.post('/update', async(req, res, next) => {
     try{
         const sql = 'update salesforce.bnb_fit_info__c SET size__c = $1, type__c = $2 WHERE id = $3';
         const {size__c} = req.body.size;

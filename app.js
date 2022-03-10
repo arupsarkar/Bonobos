@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users');
 const loyaltyRouter = require('./routes/loyalty');
 const swaggerDocRouter = require('./routes/swaggerDoc')
 const fitDetailsRouter = require('./routes/fitDetails')
+const cartRouter = require('./routes/cart')
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.use('/users', usersRouter);
 app.use('/loyalty', loyaltyRouter);
 app.use('/swaggerDoc', swaggerDocRouter)
 app.use('/fitdetails', fitDetailsRouter)
+app.use('/cart', cartRouter)
 
 module.exports = app;

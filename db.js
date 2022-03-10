@@ -17,12 +17,9 @@ let client = new pg.Client ({
     database: "dfgm3fjipert9v",
     port: 5432,
     host: "ec2-18-210-51-239.compute-1.amazonaws.com",
-    dialectOptions: {
-        ssl: {
-            require: true, // This will help you. But you will see nwe error
-            rejectUnauthorized: false // This line will fix new error
-        }
-    }
+    ssl: {    /* <----- Add SSL option */
+        rejectUnauthorized: false,
+    },
 });
 
 client.connect();

@@ -17,7 +17,7 @@ let client = new Client ({
     database: "dfgm3fjipert9v",
     port: 5432,
     host: "ec2-18-210-51-239.compute-1.amazonaws.com",
-    ssl: false
+    ssl: true,
 });
 
 client.connect();

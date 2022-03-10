@@ -7,10 +7,10 @@ router.get('/insert', async (req, res, next) => {
 
     try{
 
-        const product = req.get('product')
-        console.log('---> product', product)
-        console.log(req)
-        const result = await insertCart(product)
+        const item = req.query.item
+        console.log('---> item name ', item)
+        //console.log(req)
+        const result = await insertCart(item)
         res.json({key: result})
     }catch(error) {
         console.error(error.stack)
@@ -21,7 +21,8 @@ router.get('/insert', async (req, res, next) => {
 const insertCart = async (product) => {
 
     try{
-        const sql = `insert into "salesforce.cart__c" ("product__c") values ($1)`
+        const sql = `insert into salesforce.cart__c (product__c) values ($1)`
+        console.log(sql)
         await client.query(sql, [product])
             .then(result => {
                 console.log(result)

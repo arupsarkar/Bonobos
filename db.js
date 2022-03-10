@@ -1,5 +1,5 @@
 const Pool = require('pg').Pool;
-const pg = require('pg');
+const { Client } = require('pg');
 const dotenv = require('dotenv');
 dotenv.config();
 // const pool = new Pool({
@@ -11,7 +11,7 @@ dotenv.config();
 //     ssl: true,
 // })
 
-let client = new pg ({
+let client = new Client ({
     user: "qvkjbbfwzcfvut",
     password: "a19763df01d1eb026c84e6d780a5b34f23d5dbecce238f53e90b41f8e0f331d8",
     database: "dfgm3fjipert9v",

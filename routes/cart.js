@@ -6,9 +6,10 @@ const client = require('../db');
 router.get('/insert', async (req, res, next) => {
 
     try{
-        const current_url = new URL(req.url)
-        const search_params = current_url.searchParams
-        const product = search_params.get('product')
+
+        const product = req.get('product')
+        console.log('---> product', product)
+        console.log(req)
         const result = await insertCart(product)
         res.json({key: result})
     }catch(error) {
